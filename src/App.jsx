@@ -18,6 +18,8 @@ import gsap from "gsap";
 import { portfolioContent } from "./portfolioContent";
 import "./App.css";
 
+const publicAssetUrl = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 const portfolioSections = ["intro", "about", "projects", "skills", "contact"];
 const sectionLabels = {
   intro: "Home",
@@ -310,13 +312,13 @@ function DesktopWallpaper({ onOpenPortfolio }) {
   return (
     <div className="desktop-wallpaper">
       <div className="desktop-wallpaper-backdrop" aria-hidden="true">
-        <img alt="" draggable={false} src="/image.jpg" />
+        <img alt="" draggable={false} src={publicAssetUrl("image.jpg")} />
       </div>
       <img
         alt="Personal photo displayed as desktop wallpaper"
         className="desktop-wallpaper-photo"
         draggable={false}
-        src="/image.jpg"
+        src={publicAssetUrl("image.jpg")}
       />
       <button
         aria-label="Open My Portfolio"
@@ -1700,8 +1702,8 @@ function Scene({
   }, []);
 
   useEffect(() => {
-    const clickAudio = new Audio("/click.mp3");
-    const startupAudio = new Audio("/startup_sound.ogv");
+    const clickAudio = new Audio(publicAssetUrl("click.mp3"));
+    const startupAudio = new Audio(publicAssetUrl("startup_sound.ogv"));
     clickAudio.preload = "auto";
     startupAudio.preload = "auto";
     clickAudioRef.current = clickAudio;
@@ -2245,7 +2247,7 @@ export default function App() {
     typeof window !== "undefined" && window.innerWidth / window.innerHeight < 1;
 
   useEffect(() => {
-    const ambientAudio = new Audio("/calm_ambient.mp3");
+    const ambientAudio = new Audio(publicAssetUrl("calm_ambient.mp3"));
     ambientAudio.preload = "auto";
     ambientAudio.loop = true;
     ambientAudio.volume = 0.12;

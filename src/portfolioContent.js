@@ -7,7 +7,7 @@ export const portfolioContent = {
     "I build thoughtful digital experiences that bring design and technology together.",
   about:
     "I'm a developer who enjoys turning ambitious ideas into clear, useful, and memorable experiences. I care about the details—from the first sketch to the final interaction—and work best with curious, collaborative teams.",
-  profileImage: "/image.jpg",
+  profileImage: `${import.meta.env.BASE_URL}image.jpg`,
   skills: ["React", "JavaScript", "Three.js", "CSS", "Node.js", "Figma"],
   projects: [
     {
